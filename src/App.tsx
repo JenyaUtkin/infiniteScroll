@@ -88,7 +88,7 @@ const App: React.FC = () => {
 
     useEffect(() => {
         void loadData()
-    })
+    }, [])
 
     /**
      Loads data from the API.
@@ -152,7 +152,7 @@ const App: React.FC = () => {
         return () => {
             window.removeEventListener('scroll', handleScroll)
         }
-    })
+    }, [])
     /**
      Loads data from a server and sets loading state to false
      @returns {void}
@@ -163,7 +163,6 @@ const App: React.FC = () => {
         })
         setLoading(false)
     }, [loadData])
-
     return useMemo(() => (
         <div className={appStyles.container} onScroll={handleScroll}>
             {loadingData
